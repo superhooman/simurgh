@@ -11,6 +11,6 @@ module.exports = (req, res) =>
     "Application-Name": "mjolnir.auth.server",
     "Implementation-Version": packageConf.version,
     signaturePublickey: keychain.get("public"), // Authlib-injector
-    skinDomains: [process.env.DOMAIN], // Authlib-injector
+    skinDomains: [process.env.DOMAIN_SUFFIX], // Authlib-injector
     "Application-Owner": process.env.serverOwner
   });

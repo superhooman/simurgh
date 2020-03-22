@@ -6,7 +6,7 @@ module.exports = async (req, res) => {
     res.json({});
   }
 
-  const user = await User.find({
+  const user = await User.findOne({
     username: req.query.username
   });
 

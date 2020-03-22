@@ -27,7 +27,7 @@ module.exports = async (req, res) => {
     });
   }
 
-  const user = await User.find({ accessToken: req.body.accessToken });
+  const user = await User.findOne({ accessToken: req.body.accessToken });
 
   if (req.body.selectedProfile !== createIdFromUUID(user.uuid)) {
     return res.json(badResponse);

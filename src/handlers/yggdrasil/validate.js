@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
       errorMessage: "Access Token can not be null or empty."
     });
   }
-  const user = await User.find({ accessToken: req.body.accessToken });
+  const user = await User.findOne({ accessToken: req.body.accessToken });
 
   if (
     moment()

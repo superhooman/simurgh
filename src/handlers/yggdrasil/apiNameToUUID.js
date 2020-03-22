@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
     });
   }
 
-  const user = await User.find({ username: req.params.name });
+  const user = await User.findOne({ username: req.params.name });
 
   if (user) {
     const userId = createIdFromUUID(user.uuid);

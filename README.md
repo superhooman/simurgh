@@ -42,6 +42,7 @@ Then you have to create your own .env file:
     DB_CONNECT=mongodb://localhost/simurgh
     SECRET=YOUR_SECRET
     DOMAIN=example.com
+    DOMAIN_SUFFIX=.example.com
 
 To start the server you have to execute the following command in console:
 

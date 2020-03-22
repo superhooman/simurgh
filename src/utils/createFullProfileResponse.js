@@ -1,5 +1,6 @@
 const moment = require("moment");
 const btoa = require("btoa");
+const crypto = require("crypto");
 const keychain = require("./keychain");
 const createIdFromUUID = require("./createIdFromUUID");
 
@@ -21,7 +22,7 @@ module.exports = (user, unsigned) => {
     isPublic: true,
     textures: {
       SKIN: {
-        url: `https://${process.env.DOMAIN}/images/skin/${
+        url: `https://${process.env.DOMAIN}/skin/${
           user.skin ? user.skin : "steve.png"
         }`
       }
@@ -29,9 +30,10 @@ module.exports = (user, unsigned) => {
   };
   if (user.capeUrl) {
     valueJson.textures.CAPE = {
-      url: `https://${process.env.DOMAIN}/images/cape/${user.cape}`
+      url: `https://${process.env.DOMAIN}/cape/${user.cape}`
     };
   }
+  console.log(valueJson);
 
   const value = btoa(JSON.stringify(valueJson));
 

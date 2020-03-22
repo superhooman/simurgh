@@ -13,6 +13,8 @@ app.use(bodyParser.json());
 // Import routes
 
 const yggdrasilRouter = require("./src/routers/yggdrasil");
+const userRouter = require("./src/routers/user");
+const textureRouter = require("./src/routers/texture");
 
 // Connection
 
@@ -47,6 +49,8 @@ app.use(express.static("images"));
 // Routers
 
 app.use("/", yggdrasilRouter);
+app.use("/api/user", userRouter);
+app.use("/api/texture", textureRouter);
 
 // Other
 

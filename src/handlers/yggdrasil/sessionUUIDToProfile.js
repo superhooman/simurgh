@@ -5,7 +5,7 @@ const createFullProfileResponse = require("../../utils/createFullProfileResponse
 module.exports = async (req, res) => {
   const uuid = createUUIDFromId(req.params.uuid);
 
-  const user = await User.find({ uuid });
+  const user = await User.findOne({ uuid });
 
   if (user) {
     return res.json(createFullProfileResponse(user, req.query.unsigned));

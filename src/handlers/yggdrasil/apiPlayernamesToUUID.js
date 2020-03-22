@@ -26,7 +26,7 @@ module.exports = async (req, res) => {
       });
     }
 
-    const user = await User.find({ username: un });
+    const user = await User.findOne({ username: un });
     const userId = createIdFromUUID(user.uuid);
 
     queries.push({

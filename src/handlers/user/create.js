@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs");
+const uuidv4 = require("uuid").v4;
 const User = require("../../models/user");
 const validateUser = require("../../validators/user");
 
@@ -14,7 +15,7 @@ module.exports = async (req, res) => {
     username: req.body.username
   });
 
-  const isFirstAdmin = !(await User.count({ admin: true }));
+  const isFirstAdmin = !(await User.countDocuments({ admin: true }));
 
   if (userExists)
     return res.json({
@@ -28,7 +29,8 @@ module.exports = async (req, res) => {
   const user = new User({
     username: req.body.username,
     password: hashedPassword,
-    admin: isFirstAdmin
+    admin: isFirstAdmin,
+    uuid: uuidv4()
   });
 
   try {
@@ -38,6 +40,7 @@ module.exports = async (req, res) => {
       user: savedUser
     });
   } catch (err) {
+    console.log(err);
     return res.json({
       success: false,
       message: "DB Error"

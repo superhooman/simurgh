@@ -8,7 +8,7 @@ module.exports = async (req, res) => {
     error: "ForbiddenOperationException",
     errorMessage: "Invalid credentials. Invalid username or password."
   };
-  const user = await User.find({ username: req.body.username });
+  const user = await User.findOne({ username: req.body.username });
 
   if (!user) {
     return res.json(badResponse);

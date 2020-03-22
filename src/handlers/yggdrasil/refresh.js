@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
     });
   }
 
-  const user = await User.find({
+  const user = await User.findOne({
     clientToken: req.body.clientToken
   });
 

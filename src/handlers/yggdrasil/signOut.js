@@ -13,7 +13,7 @@ module.exports = async (req, res) => {
     });
   }
 
-  const user = await User.find({ username: req.body.username });
+  const user = await User.findOne({ username: req.body.username });
 
   const validPass = await bcrypt.compare(req.body.password, user.password);
 
