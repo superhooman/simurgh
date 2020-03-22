@@ -43,6 +43,8 @@ module.exports = async (req, res) => {
 
   return res.header("Authorization", `Bearer ${token}`).json({
     success: true,
-    token
+    token,
+    skin: user.skin,
+    cape: user.cape
   });
 };
