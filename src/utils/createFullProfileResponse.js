@@ -28,7 +28,7 @@ module.exports = (user, unsigned) => {
       }
     }
   };
-  if (user.capeUrl) {
+  if (user.cape) {
     valueJson.textures.CAPE = {
       url: `https://${process.env.DOMAIN}/cape/${user.cape}`
     };
